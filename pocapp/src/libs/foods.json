@@ -1,0 +1,50 @@
+[
+    {
+        "id": "1",
+        "name": "Baguette",
+        "image": "baguette.png",
+        "weight": 0
+    },
+    {
+        "id": "2",
+        "name": "Carotte rapée",
+        "image": "carotte.png",
+        "weight": 0
+    },
+    {
+        "id": "3",
+        "name": "Couscous", 
+        "image":"couscous.png",
+        "weight": 0
+    },
+    {
+        "id": "4",
+        "name": "Gateau au chocolat",
+        "image": "gateaux_choc.png",
+        "weight": 0
+    },
+    {
+        "id": "5",
+        "name":"Hamburger",
+        "image":"han.png",
+        "weight": 0
+    },
+    {
+        "id": "6",
+        "name":"Paella",
+        "image":"paella.png",
+        "weight": 0
+    },
+    {
+        "id": "7",
+        "name":"Pates carbonara",
+        "image":"pates_carbo.png",
+        "weight": 0
+    },
+    {
+        "id": "8",
+        "name":"Pizza",
+        "image":"pizza.png",
+        "weight": 0
+    }
+]

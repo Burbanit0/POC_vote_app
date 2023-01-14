@@ -1,0 +1,39 @@
+version: '3'
+services:
+    mongodb:
+        container_name: mongodb
+        image: mongo:latest
+        ports:
+          - 27017:27017
+        volumes:
+          - mongodb:/data/db
+    jwtserver:
+        depends_on:
+          - mongodb
+        environment:
+          - NODE_ENV=development
+        build: 
+          context: ./jwtserver
+          dockerfile: Dockerfile.dev
+        volumes:
+          - ./jwtserver:/myapp/jwtserver
+        container_name: jwtserver
+        expose:
+          - "4000"
+        ports:
+          - "4000:4000"
+        command: npm run dev
+    pocapp:
+        container_name: pocapp
+        image: "node:16.15.0-alpine"
+        working_dir: /myapp/pocapp
+        ports:
+          - "3000:3000"
+        volumes:
+          - ./pocapp:/myapp/pocapp
+        command: "npm start"
+
+volumes:
+    jwtserver:
+    mongodb:
+    poc-app:

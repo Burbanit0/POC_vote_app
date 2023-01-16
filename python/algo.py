@@ -93,7 +93,7 @@ def winner(resultat):
 
 # Il faut sortir le moins bon des resultats
 def looser(resultat):
-    score_min = 11
+    score_min = 121
     indice_min = 0
     for cle in list(resultat):
         if resultat[cle] < score_min:
@@ -104,19 +104,19 @@ def looser(resultat):
 
 # Suppression du moins bon choix de la liste des candidats 
 def delete_choice(list_of_list, looser):
-    for list in list_of_list:
-        list.remove(looser)
-    return list_of_list
+    new_list = [[x for x in sublist if x != looser] for sublist in list_of_list]
+    return new_list
 
 # Procédure finale 
 def alternatif(list_of_list, total):
     res = 0
+    new_list = list_of_list.copy()
     while (res < total/2): 
-        resultat = score(list_of_list)
+        resultat = score(new_list)
         winner_id = winner(resultat)
         res = resultat[winner_id]
         looser_id = looser(resultat)
-        list_of_list = delete_choice(list_of_list, looser_id)
+        new_list = delete_choice(new_list, looser_id)
     return winner_id
 
 # Methode Borda:
@@ -126,12 +126,21 @@ def alternatif(list_of_list, total):
 def borda(list_of_list):
     resultat = {}
     for list in list_of_list:
-        for i in list:
-            if i in resultat:
-                resultat[i] += 1
+        for i in range(0, len(list)):
+            if list[i] in resultat:
+                resultat[list[i]] += i
             else:
-                resultat[i] = 1
-    return winner(resultat)
+                resultat[list[i]] = i
+    return looser(resultat)
 
 # Methode de Condorcet:
+def transfo(list_of_list):
+    votes = []
+    for list in list_of_list:
+        result = {}
+        for i in range (1,len(list)+1):
+            result[list[i-1]]=i
+        votes.append(result)
+    return votes 
+
 # 

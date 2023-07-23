@@ -17,6 +17,7 @@ list_of_choice = build_list()
 
 methode_alternatif = algo.alternatif(list_of_choice, 11)
 methode_borda = algo.borda(list_of_choice)
+methode_nanson = algo.nanson(list_of_choice)
 
 ex_votes = algo.transfo(list_of_choice)
 ex_candidates = ["1", "2", "3", "4", "5", "6", "7", "8"]
@@ -34,4 +35,7 @@ methode_condorcet = methode_Condo(ex_candidates, ex_votes)
 # print(methode_borda)
 
 # Test de la méthode de Condorcet
-print(methode_alternatif, methode_borda, methode_condorcet)
+# print(methode_condorcet)
+
+# Test de la méthode de Nanson
+print(methode_nanson)

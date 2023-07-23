@@ -99,7 +99,6 @@ def looser(resultat):
         if resultat[cle] < score_min:
             score_min = resultat[cle]
             indice_min = cle
-    
     return indice_min
 
 # Suppression du moins bon choix de la liste des candidats 
@@ -128,9 +127,9 @@ def borda(list_of_list):
     for list in list_of_list:
         for i in range(0, len(list)):
             if list[i] in resultat:
-                resultat[list[i]] += i
+                resultat[list[i]] += i+1
             else:
-                resultat[list[i]] = i
+                resultat[list[i]] = i+1
     return looser(resultat)
 
 # Methode de Condorcet:
@@ -143,4 +142,35 @@ def transfo(list_of_list):
         votes.append(result)
     return votes 
 
-# 
+# Methode de Nanson 
+# Elimination à chaques tours des candidats ayant un score supérieur
+# a la moyenne des scores  
+def borda_score(list_of_list):
+    resultat = {}
+    for list in list_of_list:
+        for i in range (len(list)):
+            if list[i] in resultat:
+                resultat[list[i]] += i+1
+            else:
+                resultat[list[i]] = i+1
+    return resultat
+
+def average_res(resultat):
+    average = 0
+    for _, value in resultat.items():
+        average += value/len(list(resultat))
+    return average
+
+def reduce(resultat, list_of_list, average):
+    for key, value in resultat.items():
+        if (value >= average):
+            list_of_list = delete_choice(list_of_list, key)
+    return list_of_list
+
+def nanson(list_of_list):
+    new_list = list_of_list.copy()
+    while len(new_list[0]) > 1:
+        res = borda_score(new_list)
+        moy = average_res(res)
+        new_list = reduce(res, new_list, moy)
+    return new_list[0][0]

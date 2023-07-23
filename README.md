@@ -19,6 +19,10 @@ Attention, la base de données est sur Docker il faut la lancer avt de démarrer
 
 ## Travail à réaliser: 
 
+# Passage de la base de donnée sur MySQL pour pouvoir plus facilement lire les changements des tables et les modifiers 
+• L'objectif est de tout repasser sur mysql 
+• Il faut ensuite avoir un script de lecture de la table de saisi des données. 
+
 • Voir si la BDD ne peut pas etre optimiser 
 • Faire toute la partie Back pour interpreter les résultats 
 • Ecrire tous les algos pour compter (Quelles sont les différentes manières de compter ?)

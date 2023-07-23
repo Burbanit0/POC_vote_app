@@ -13,9 +13,8 @@ interface Props{
 export default function NavBar(props:Props) {
     return (
         <Navbar bg="light" expand="lg">
+            {props.user ? (
             <Container>
-                {props.user ? (
-                <div>
                 <Navbar.Brand href="/">Home</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Nav className="me-auto">
@@ -33,30 +32,33 @@ export default function NavBar(props:Props) {
                 </Nav.Item>       
                 <Nav.Item>
                     <Nav.Link href="/scrutinW">Poids</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link href="/profile">{props.user.username}</Nav.Link>
-                </Nav.Item>    
+                </Nav.Item>  
                 </Nav>
-                <Nav className="justify-content-end">
-                    <Navbar.Text className="justify-content-end">
-                        <a href="/login" className="nav-link" onClick={props.logOut}>
-                            LogOut
-                        </a>
-                    </Navbar.Text>
-                </Nav>
-                </div>
-                ) : (
                 <Navbar.Collapse className="justify-content-end">
-                <Nav>
-                    <div>
-                    <Nav.Link href="/login">Login</Nav.Link>
-                    <Nav.Link href="/register">Sign Up</Nav.Link>
-                    </div>
-                </Nav>
+                    <Nav>
+                        <Nav.Link href="/profile">{props.user.username}</Nav.Link>
+                    </Nav>
+                    <Navbar.Text className="justify-content-end">
+                        
+                        <Nav.Link href="/login" className="nav-link" onClick={props.logOut}>
+                            LogOut
+                        </Nav.Link>
+                    </Navbar.Text>
                 </Navbar.Collapse>
-                )}
             </Container>
+            ) : (
+                <Container>
+                    <Navbar.Brand href="/">Home</Navbar.Brand>
+                    <Navbar.Collapse className="justify-content-end">
+                        <Nav>
+                            <div>
+                                <Nav.Link href="/login">Login</Nav.Link>
+                                <Nav.Link href="/register">Sign Up</Nav.Link>
+                            </div>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+                )}
         </Navbar>
     )
 }

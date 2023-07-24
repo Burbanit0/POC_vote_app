@@ -1,6 +1,6 @@
 import { Food } from "../pages/ScrutinMajoritaire";
 import React, {ReactNode} from 'react';
-import  {Card} from 'react-bootstrap';
+import  {Card, InputGroup, Form} from 'react-bootstrap';
 import IUser from "../types/user.type";
 
 interface FoodInfo {
@@ -21,6 +21,10 @@ export default function FoodCardNote(props: FoodInfo) {
               <Card.Text>
                   Description de la carte
               </Card.Text>
+              <InputGroup className="mb-3">
+                <InputGroup.Text id="basic-addon">NOTE</InputGroup.Text>
+                <Form.Control type="number"/>
+              </InputGroup>
           </Card.Body>
       </Card>
   )

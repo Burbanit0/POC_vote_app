@@ -51,10 +51,12 @@ export default function NavBar(props:Props) {
                     <Navbar.Brand href="/">Home</Navbar.Brand>
                     <Navbar.Collapse className="justify-content-end">
                         <Nav>
-                            <div>
+                            <Nav.Item>
                                 <Nav.Link href="/login">Login</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
                                 <Nav.Link href="/register">Sign Up</Nav.Link>
-                            </div>
+                            </Nav.Item>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

@@ -5,6 +5,7 @@ import useModal from "../hooks/useModal";
 import ModalScrutin from "../components/ModalScrutin";
 import { Food } from "../pages/ScrutinMajoritaire";
 import IUser from "../types/user.type";
+import { Row } from "react-bootstrap";
 
 interface FoodInfo {
     children?: ReactNode;
@@ -22,8 +23,10 @@ export default function FoodCard(props: FoodInfo ) {
                 <Card.Title>
                     {props.food.name}
                 </Card.Title>
-                    <Button variant="success" onClick={toggle}>Select</Button>
-                    <ModalScrutin isOpen={isOpen} toggle={toggle} food={props.food} user={props.user}/>
+                    <Row className="justify-content-center">
+                        <Button variant="success" onClick={toggle} >Select</Button>
+                        <ModalScrutin isOpen={isOpen} toggle={toggle} food={props.food} user={props.user}/>
+                    </Row>
             </Card.Body>
         </Card>
     )

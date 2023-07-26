@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 
 // Components:
 import NavBar from './components/NavBar';
@@ -52,17 +52,19 @@ function App(props:Props) {
 
   return (
         <BrowserRouter>
-          <NavBar user={currentUser} logOut={logOut}/>
+          
           <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/login" element={<Login />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/register" element={<Register />} />
-            <Route path='/scrutinMaj' element={<Page1 user={currentUser} />} />
-            <Route path='/scrutinClass' element={<Page2 user={currentUser} />} />
-            <Route path='/scrutinW' element={<Page3 user={currentUser} />} />
-            <Route path='/scrutinNote' element={<Page4 user={currentUser} />} />
-            <Route path='/scrutinChoice' element={<Page5 />} /> 
+            <Route element={<><NavBar user={currentUser} logOut={logOut}/><Outlet/></>}>
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/register" element={<Register />} />
+              <Route path='/scrutinMaj' element={<Page1 user={currentUser} />} />
+              <Route path='/scrutinClass' element={<Page2 user={currentUser} />} />
+              <Route path='/scrutinW' element={<Page3 user={currentUser} />} />
+              <Route path='/scrutinNote' element={<Page4 user={currentUser} />} />
+              <Route path='/scrutinChoice' element={<Page5 />} />
+            </Route>
           </Routes>
         </BrowserRouter>
   );

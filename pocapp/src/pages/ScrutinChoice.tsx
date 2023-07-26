@@ -12,7 +12,7 @@ import Button from 'react-bootstrap/Button';
 
 export default function ScrutinChoice() {
     let [foods, setFoods] = useState(Array<Food>);
-    let [data, setData] = useState(Array<string>);
+    let [data, ] = useState(Array<string>);
 
     function colored() {
         console.log(data)

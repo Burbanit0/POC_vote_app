@@ -12,20 +12,17 @@ interface FoodInfo {
 export default function FoodCardNote(props: FoodInfo) {
 
     return(
-      <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={`/assets/images/${props.food.image}`} width="100" height="180"/>
-          <Card.Body>
-              <Card.Title>
-                  {props.food.name}
-              </Card.Title>
-              <Card.Text>
-                  Description de la carte
-              </Card.Text>
-              <InputGroup className="mb-3">
+    <Card style={{ width: '18rem' }}>
+        <Card.Img variant="top" src={`/assets/images/${props.food.image}`} width="100" height="180"/>
+        <Card.Body>
+            <Card.Title>
+                {props.food.name}
+            </Card.Title>
+            <InputGroup className="mb-3">
                 <InputGroup.Text id="basic-addon">NOTE</InputGroup.Text>
                 <Form.Control type="number"/>
-              </InputGroup>
-          </Card.Body>
-      </Card>
+            </InputGroup>
+        </Card.Body>
+    </Card>
   )
 };

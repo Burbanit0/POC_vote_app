@@ -1,12 +1,10 @@
 import React, { ReactNode } from "react";
-// import Card from "react-bootstrap/Card";
 import { Card, CardActions, CardContent, CardMedia, Typography, styled } from "@mui/material";
 import Button from "react-bootstrap/Button";
 import useModal from "../hooks/useModal";
 import ModalScrutin from "../components/ModalScrutin";
 import { Food } from "../pages/ScrutinMajoritaire";
 import IUser from "../types/user.type";
-import { Row } from "react-bootstrap";
 
 interface FoodInfo {
     children?: ReactNode;
@@ -27,13 +25,10 @@ const StyledCard = styled(Card)`
     `}
 `;
 
-
-
 export default function FoodCard(props: FoodInfo ) {
     const { isOpen, toggle } = useModal();
 
     return(
-
         <StyledCard>
             <CardMedia component="img" 
                 image= {`/assets/images/${props.food.image}`} 

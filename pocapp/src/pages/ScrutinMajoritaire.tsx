@@ -5,6 +5,7 @@ import Container from "react-bootstrap/Container";
 import FoodCard from "../components/FoodCard";
 import foodsJson from "../libs/foods.json";
 import IUser from "../types/user.type";
+import { Typography } from "@mui/material";
 
 export interface Food{
     id:string,
@@ -27,6 +28,9 @@ export default function ScrutinMajoritaire(props:Props){
 
     return (
         <>
+        <Typography variant="h3" color="text.primary" align="center">
+            Scrutin Majoritaire 
+        </Typography>
         <div>
             <Container>
                 <Row className="justify-content-md-center mx-md-n3 my-3">

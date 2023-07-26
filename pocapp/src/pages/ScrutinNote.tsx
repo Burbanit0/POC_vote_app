@@ -5,7 +5,6 @@ import Row from 'react-bootstrap/esm/Row';
 import foodsJson from "../libs/foods.json";
 import IUser from '../types/user.type';
 import { Food } from './ScrutinMajoritaire';
-import FoodCordNote from "../components/FoodCardNote";
 import FoodCardNote from '../components/FoodCardNote';
 import { Button } from 'react-bootstrap';
 

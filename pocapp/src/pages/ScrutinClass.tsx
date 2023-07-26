@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { DragDropContext, Draggable, Droppable, DropResult } from "react-beautiful-dnd";
-import { Col, Container, ListGroup, Row} from "react-bootstrap";
+import { Col, Container, Row} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import foodsJson from "../libs/foods.json";
 import { Food } from "./ScrutinMajoritaire";
 import userService from "../services/user.service";
 import IUser from "../types/user.type";
+import { Typography } from "@mui/material";
 
 const getItemStyle = (isDragging: boolean, draggableStyle: any) => ({
 	padding: 2,
@@ -73,12 +74,15 @@ export default function ScrutinClass(props:ScrutinType){
 															{...provided.dragHandleProps}
 															style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}
 														>
-															{food.name}
+															<Typography variant="h5" color="text.primary" align="center">
+																{food.name}
+															</Typography>
 														</div>
 													)}
 												</Draggable>
 											);
 										})}
+										{provided.placeholder}
 									</div>
 								</Col>
 							</Row>

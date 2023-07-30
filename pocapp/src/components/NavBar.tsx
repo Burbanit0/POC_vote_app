@@ -2,18 +2,15 @@ import React from "react";
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from "react-bootstrap/Container";
-import IUser from "../types/user.type";
+import { useUser } from "../utils/userContext";
 
 
-interface Props{
-    user:IUser | undefined,
-    logOut: () => void
-}
+export default function NavBar() {
+    let user = useUser();
 
-export default function NavBar(props:Props) {
     return (
         <Navbar bg="light" expand="lg">
-            {props.user ? (
+            {user.currentUser ? (
             <Container>
                 <Navbar.Brand href="/">Home</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -36,11 +33,11 @@ export default function NavBar(props:Props) {
                 </Nav>
                 <Navbar.Collapse className="justify-content-end">
                     <Nav>
-                        <Nav.Link href="/profile">{props.user.username}</Nav.Link>
+                        <Nav.Link href="/profile">{user.currentUser.username}</Nav.Link>
                     </Nav>
                     <Navbar.Text className="justify-content-end">
                         
-                        <Nav.Link href="/login" className="nav-link" onClick={props.logOut}>
+                        <Nav.Link href="/login" className="nav-link" onClick={user.logOut}>
                             LogOut
                         </Nav.Link>
                     </Navbar.Text>

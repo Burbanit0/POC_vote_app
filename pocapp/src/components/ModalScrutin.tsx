@@ -1,8 +1,8 @@
 import React, {ReactNode} from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { Food } from "../pages/ScrutinMajoritaire";
-import IUser from "../types/user.type";
+import Food from "../types/food.type";
+import { IUser} from "../types/user.type";
 import userService from "../services/user.service";
 
 interface ModalType {

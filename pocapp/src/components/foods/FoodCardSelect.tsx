@@ -1,4 +1,4 @@
-import { Food } from "../pages/ScrutinMajoritaire";
+import Food from '../../types/food.type';
 import React, {useEffect, useState, ReactNode} from 'react';
 import  {Card} from 'react-bootstrap';
 

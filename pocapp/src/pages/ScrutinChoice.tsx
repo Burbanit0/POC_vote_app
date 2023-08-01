@@ -1,6 +1,6 @@
 import React from 'react';
 import Typography from '@mui/material/Typography';
-import CardGrid from '../components/Grid';
+import GridChoice from '../components/GridChoice';
 
 export default function ScrutinChoice(){
 
@@ -9,7 +9,7 @@ export default function ScrutinChoice(){
             <Typography variant="h3" color="text.primary" align="center">
                 Choix multiple
             </Typography>
-            <CardGrid/>
+            <GridChoice/>
         </>
     )
 }

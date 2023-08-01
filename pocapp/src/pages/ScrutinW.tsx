@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import { Grid, LinearProgress, Typography } from "@mui/material";
 import CardGrid from "../components/Grid";
 import Weight from "../components/actions/Weight";
+import { styled } from '@mui/material/styles';
 
 export default function ScrutinW () {
     let [total, setTotal] = useState(100);
@@ -19,14 +20,23 @@ export default function ScrutinW () {
         }
     }
 
+
+
     return (
         <>
         <Typography variant="h3" color="text.primary" align="center">
             Attribution d'un poids
         </Typography>
+        <Grid height={30}>
+
+        </Grid>
         <Grid container>
-            <Grid xs={2}> 
-                <LinearProgress variant="buffer" value={total} sx={{width:500}}/>
+            <Grid xs={4}>
+            </Grid>
+            <Grid xs={4}> 
+                <LinearProgress variant="buffer" value={total} sx={{width:500, height:10, borderRadius:2}}/>
+            </Grid>
+            <Grid xs={4}>
             </Grid>
         </Grid>
         <CardGrid option={<><Weight total={total} sub={sub} add={add}/></>}/>    

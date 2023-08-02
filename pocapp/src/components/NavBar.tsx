@@ -5,18 +5,19 @@ import Container from "react-bootstrap/Container";
 import { useUser } from "../utils/userContext";
 
 
+
 export default function NavBar() {
     let user = useUser();
 
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="light" expand="lg" className="navbar">
             {user.currentUser ? (
             <Container>
                 <Navbar.Brand href="/">Home</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Nav className="me-auto">
                 <Nav.Item>
-                    <Nav.Link href="/scrutinMaj">Scrutin Majoritaire</Nav.Link>
+                    <Nav.Link href="/scrutinMaj">Majoritaire</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                     <Nav.Link href="/scrutinClass">Classement</Nav.Link>

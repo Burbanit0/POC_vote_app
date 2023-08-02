@@ -23,7 +23,7 @@ const StyledCard = styled(Card)`
 export default function FoodCard(props: FoodInfo ) {
  
     return(
-        <StyledCard>
+        <StyledCard sx={{boxShadow: 5}}>
             <CardMedia component="img" 
                 image= {`/assets/images/${props.food.image}`} 
                 height="190"

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Poids } from '../pages/ScrutinW';
+// import { Poids } from '../pages/ScrutinW';
 import authHeader from './auth-header';
 
 const API_URL = 'http://localhost:4000/';
@@ -28,12 +28,12 @@ class UserService {
     });
   }
 
-  savePoids(user_id:string, poids:Poids[]) {
-    return axios.put(API_URL + 'list/poids/user/' + user_id, 
-    {
-      poids
-    });
-  }
+  // savePoids(user_id:string, poids:Poids[]) {
+  //   return axios.put(API_URL + 'list/poids/user/' + user_id, 
+  //   {
+  //     poids
+  //   });
+  // }
 
 }
 

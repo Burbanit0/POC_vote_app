@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-import AuthService from "../services/auth.service";
+import AuthService from "../../services/auth.service";
 
 type Props = {};
 
@@ -33,7 +33,7 @@ export default class Login extends Component<Props, State> {
     const currentUser = AuthService.getCurrentUser();
 
     if (currentUser) {
-      this.setState({ redirect: "/profile" });
+      this.setState({ redirect: "/" });
     };
   }
 
@@ -60,7 +60,7 @@ export default class Login extends Component<Props, State> {
     AuthService.login(username, password).then(
       () => {
         this.setState({
-          redirect: "/profile"
+          redirect: "/"
         });
       },
       error => {

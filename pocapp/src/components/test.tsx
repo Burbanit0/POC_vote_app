@@ -1,25 +1,25 @@
-import React, { useState } from "react";
+import React, { ReactNode } from "react";
+import Food from "../types/food.type";
+import { IUser } from "../types/user.type";
+import CardActions from "@mui/material/CardActions";
+import { Button } from "react-bootstrap";
+import ModalScrutin from "./ModalScrutin";
+import useModal from "../hooks/useModal";
 
-// const [percentage, setPercentage] = useState(0);
+interface FoodInfo {
+    children?: ReactNode;
+    food: Food;
+    user: IUser | undefined;
 
-//   const dotClicked = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+}
 
-//     let clickedDot = e.currentTarget;
-//     let clickedDotIndex = parseInt(clickedDot.dataset.index);
-//     let progressBarWidth = document.getElementById('progress-bar')?.clientWidth;
-    
-//     let percentage = Math.round(100 * clickedDotIndex * (progressBarWidth/5))/progressBarWidth;
-//     setPercentage(percentage);
+export default function CardFooter(props: FoodInfo) {
+    const { isOpen, toggle } = useModal();
 
-//     return (
-//         <div className="App">
-//         <div className="progress-bar-wrapper">
-//             <div className="progress-bar" id="progress-bar">
-//             {[...Array(5)].map((_, i) => (
-//                 <div className="dot" key={i} data-index={i} onClick={dotClicked} />
-//             ))}
-//             </div>
-//         </div>
-//         </div>
-//     )
-// }
+    return (
+        <CardActions>
+                <Button variant="success" onClick={toggle} >Select</Button>
+                <ModalScrutin isOpen={isOpen} toggle={toggle} food={props.food} user={props.user}/>
+        </CardActions>
+    )
+}

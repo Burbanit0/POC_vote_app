@@ -1,70 +1,26 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter } from "react-router-dom";
 
 // Components:
-import NavBar from './components/NavBar';
+import AnimatedRoutes from "./components/AnimatedRoutes";
 
-
-import AuthService from "./services/auth.service";
-import IUser from './types/user.type';
-
-import Login from "./components/login.component";
-import Register from "./components/register.component";
-import Profile from './components/profile.component';
-
-import EventBus from "./common/EventBus";
-
+import { FoodProvider } from "./utils/foodsContext";
+import { UserProvider } from './utils/userContext';
 // Pages: 
-import Home from './pages/Home';
-import Page1 from './pages/ScrutinMajoritaire';
-import Page2 from './pages/ScrutinClass';
-import Page3 from './pages/ScrutinW';
-import Page4 from './pages/ScrutinNote';
-import Page5 from './pages/ScrutinChoice';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-type Props = {};
-
-function App(props:Props) {
-
-  const [currentUser, setCurrentUser] = useState<IUser | undefined>(undefined);
-
-  const logOut = useCallback(() => {
-    setCurrentUser(undefined);
-    AuthService.logout();  
-  }, []);
-
-  useEffect(() =>{
-    const user = AuthService.getCurrentUser();
-    if (user) {
-      setCurrentUser(user);
-      };
-
-    EventBus.on("logout", logOut);
-  }, [logOut])
+function App() {
   
-  useEffect(()=> {
-    return(
-      EventBus.remove("logout", logOut)
-    ) 
-  },[logOut])
-
   return (
+    <UserProvider>
+      <FoodProvider>
         <BrowserRouter>
-          <NavBar user={currentUser} logOut={logOut}/>
-          <Routes>
-            <Route path="/" element={<Home/>} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/register" element={<Register />} />
-            <Route path='/scrutinMaj' element={<Page1 user={currentUser} />} />
-            <Route path='/scrutinClass' element={<Page2 user={currentUser} />} />
-            <Route path='/scrutinW' element={<Page3 user={currentUser} />} />
-            <Route path='/scrutinNote' element={<Page4 user={currentUser} />} />
-            <Route path='/scrutinChoice' element={<Page5 />} /> 
-          </Routes>
+          <AnimatedRoutes/>
         </BrowserRouter>
+      </FoodProvider>
+    </UserProvider>
+      
   );
 }
 

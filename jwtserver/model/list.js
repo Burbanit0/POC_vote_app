@@ -7,6 +7,8 @@ const ListSchema = new Schema({
     majoritaire: {type : String, default:null},
     ordre: { type: [String], default: null},
     poids: { image: {type: String, default:null}, poids: {type: Number, default: null}},
+    note: { image:{type: String, default:null}, note: {type:Number, defaults: null}},
+    selection: {type: [String], default:null}
   });
 
 const List = mongoose.model("List", ListSchema);

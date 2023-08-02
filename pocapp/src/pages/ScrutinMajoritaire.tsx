@@ -1,47 +1,21 @@
-import React, { useEffect, useState } from "react";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
-import FoodCard from "../components/FoodCard";
-import foodsJson from "../libs/foods.json";
-import IUser from "../types/user.type";
+import React from "react";
+import { Typography } from "@mui/material";
+import CardGrid from "../components/Grid";
+import { motion } from "framer-motion";
 
-export interface Food{
-    id:string,
-    name:String,
-    image:string,
-    weight: number
-}
-
-interface Props{
-    user:IUser | undefined
-}
-
-export default function ScrutinMajoritaire(props:Props){
+export default function ScrutinMajoritaire(){
     
-    let [foods, setFoods] = useState(Array<Food>);
-    
-    useEffect(() => {
-        setFoods(foodsJson);
-      }, []);
-
     return (
-        <>
+        <motion.div 
+            initial={{opacity:0}}
+            animate={{opacity:1}}
+            exit={{opacity:0}}>
+        <Typography variant="h3" color="text.primary" align="center">
+            Scrutin Majoritaire 
+        </Typography>
         <div>
-            <Container>
-                <Row className="justify-content-md-center mx-md-n3 my-3">
-                    {foods.map((food:Food) => 
-                        {
-                            return (
-                                <Col className="py-2" md={3}>
-                                    <FoodCard food = {food} user = {props.user}/>
-                                </Col>
-                            )
-                        }
-                    )}
-                </Row>
-            </Container>
+            <CardGrid />
         </div>
-        </>
+        </motion.div>
     )
 }

@@ -1,5 +1,0 @@
-FROM node:16.15.0-alpine
-WORKDIR /myapp/jwtserver
-COPY package*.json ./
-RUN npm install 
-COPY . .

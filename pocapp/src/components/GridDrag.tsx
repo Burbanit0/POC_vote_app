@@ -11,7 +11,6 @@ export default function GridDrag(props: Props) {
     let [items, setItems] = useState(props.foods);
 
     function onChange(sourceId: string, sourceIndex: number, targetIndex: number) {
-		console.log(sourceIndex);
 		const nextState = swap(items, sourceIndex, targetIndex);
 		setItems(nextState);
 	}

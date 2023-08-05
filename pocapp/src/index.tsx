@@ -22,7 +22,6 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
     <FoodProvider>
     <QueryClientProvider client={queryClient}>  
         <Router>
@@ -35,7 +34,6 @@ root.render(
         </Router>
         </QueryClientProvider>
       </FoodProvider>
-  </React.StrictMode>
 );
 
 reportWebVitals();

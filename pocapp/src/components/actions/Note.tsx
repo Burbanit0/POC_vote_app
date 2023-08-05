@@ -1,16 +1,3 @@
-// import React from 'react';
-// import { TextField } from '@mui/material';
-
-// export default function Note() {
-//   return (
-//     <TextField fullWidth size='small'
-//         id="outlined-number"
-//         type="number"
-//         InputProps={{ inputProps: { min: 0, max: 5 } }}
-//     />
-//   );
-// }
-
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Rating, { IconContainerProps } from '@mui/material/Rating';

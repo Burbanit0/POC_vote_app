@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import FoodCard from "../components/foods/FoodCard";
-import {GridContextProvider,
-	GridDropZone,
-	GridItem,
-	swap } from "react-grid-dnd";
+import {GridContextProvider, GridDropZone, GridItem, swap} from "react-grid-dnd";
 import Food from "../types/food.type";
 
 interface Props {
@@ -13,14 +10,11 @@ interface Props {
 export default function GridDrag(props: Props) {
     let [items, setItems] = useState(props.foods);
 
-    function onChange(
-		sourceId: string,
-		sourceIndex: number,
-		targetIndex: number
-	  ) {
+    function onChange(sourceId: string, sourceIndex: number, targetIndex: number) {
+		console.log(sourceIndex);
 		const nextState = swap(items, sourceIndex, targetIndex);
 		setItems(nextState);
-	  }
+	}
 
     return(
         <GridContextProvider onChange={onChange}>
@@ -28,7 +22,7 @@ export default function GridDrag(props: Props) {
 				id="items"
 				boxesPerRow={4}
 				rowHeight={300}
-                style={{ height: 200 * Math.ceil(items.length / 4) }}
+                style={{ height: 400 }}
 				>
 				{items.map(item => (
 					<GridItem key={item.id} style={{padding: '10px'}}>

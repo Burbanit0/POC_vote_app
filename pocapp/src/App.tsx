@@ -1,26 +1,16 @@
 import React from 'react';
-import { BrowserRouter } from "react-router-dom";
-
-// Components:
-import AnimatedRoutes from "./components/AnimatedRoutes";
-
-import { FoodProvider } from "./utils/foodsContext";
-import { UserProvider } from './utils/userContext';
-// Pages: 
-
 import 'bootstrap/dist/css/bootstrap.min.css';
+import routes from './router';
+import { useRoutes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
-  
+  const content = useRoutes(routes);
   return (
-    <UserProvider>
-      <FoodProvider>
-        <BrowserRouter>
-          <AnimatedRoutes/>
-        </BrowserRouter>
-      </FoodProvider>
-    </UserProvider>
-      
+    <>
+      <ToastContainer />
+      {content}
+    </>
   );
 }
 

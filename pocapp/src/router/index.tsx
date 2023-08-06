@@ -36,6 +36,10 @@ const authRoutes: RouteObject = {
       path: 'register',
       element: <RegisterPage />,
     },
+    {
+      index: true,
+      element: <HomePage />,
+    },
   ],
 };
 
@@ -44,38 +48,33 @@ const normalRoutes: RouteObject = {
   element: <Layout />,
   children: [
     {
-      index: true,
-      element: <HomePage />,
-    },
-    {
-      path: 'profile',
       element: <RequireUser allowedRoles={['user', 'admin']} />,
       children: [
         {
           path: 'profile',
           element: <ProfilePage />,
         },
+        {
+          path: 'scrutinMaj',
+          element: <ScrutinMajoritaire/>
+        },
+        {
+          path: 'scrutinClass',
+          element: <ScrutinClass/>
+        },
+        {
+          path: 'scrutinW',
+          element: <ScrutinW/>
+        },
+        {
+          path: 'scrutinNote',
+          element: <ScrutinNote/>
+        },
+        {
+          path: 'scrutinChoice',
+          element: <ScrutinChoice/>
+        },
       ],
-    },
-    {
-      path: 'scrutinMaj',
-      element: <ScrutinMajoritaire/>
-    },
-    {
-      path: 'scrutinClass',
-      element: <ScrutinClass/>
-    },
-    {
-      path: 'scrutinW',
-      element: <ScrutinW/>
-    },
-    {
-      path: 'scrutinNote',
-      element: <ScrutinNote/>
-    },
-    {
-      path: 'scrutinChoice',
-      element: <ScrutinChoice/>
     },
     {
       path: 'unauthorized',
